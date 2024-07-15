@@ -1,0 +1,29 @@
+<div class="p-2 bg-white rounded-lg shadow">
+  <h2 class="text-2xl font-bold mb-4">Top selling products</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+      <thead>
+        <tr>
+          <th class="px-4 py-2 text-left text-gray-500">PRODUCTS</th>
+          <th class="px-4 py-2 text-left text-gray-500">STOCKS</th>
+          <th class="px-4 py-2 text-left text-gray-500">PRICE</th>
+          <th class="px-4 py-2 text-left text-gray-500">SALES</th>
+          <th class="px-4 py-2 text-left text-gray-500">EARNINGS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products" class="border-t">
+          <td class="px-4 py-2 flex items-center">
+            <input type="checkbox" class="form-checkbox h-4 w-4 mr-2 text-green-500">
+            
+            {{ product.name }}
+          </td>
+          <td class="px-4 py-2">{{ product.stocks   }}</td>
+          <td class="px-4 py-2">{{ product.price  }}</td>
+          <td class="px-4 py-2">{{ product.sales  }}</td>
+          <td class="px-4 py-2">{{ product.earnings  }} <span class="text-green-500">{{ product.growth }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

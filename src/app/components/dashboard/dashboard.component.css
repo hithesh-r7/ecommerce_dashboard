@@ -1,0 +1,18 @@
+.dis{
+    display:grid;
+    grid-template-columns: 700px 700px;
+    
+    grid-gap:15px;
+
+    
+
+}
+
+.header-comp{
+    margin-left: 250px; 
+    margin-right: 50px;
+}
+
+.sidebar-comp{
+    display: inline;
+}
