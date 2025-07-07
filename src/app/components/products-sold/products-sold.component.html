@@ -18,8 +18,8 @@
             
             {{ product.name }}
           </td>
-          <td class="px-4 py-2">{{ product.stocks   }}</td>
-          <td class="px-4 py-2">{{ product.price  }}</td>
+          <td class="px-4 py-2">{{ product.stocks    }}</td>
+          <td class="px-4 py-2">{{ product.price | currency }}</td>
           <td class="px-4 py-2">{{ product.sales  }}</td>
           <td class="px-4 py-2">{{ product.earnings  }} <span class="text-green-500">{{ product.growth }}</span></td>
         </tr>

@@ -15,7 +15,7 @@ export class TopcategoriesComponent implements OnInit {
   createPieChart() {
     
     new Chart('pieChart', {
-      type: 'pie',
+      type: 'doughnut',
       data: {
         labels: ['Fashion', 'Electronics', 'Food'],
         datasets: [
@@ -24,9 +24,12 @@ export class TopcategoriesComponent implements OnInit {
             backgroundColor: ['#90EE90', '#008000', '#FFCE56'],
             hoverBackgroundColor: ['#90EE90', '#008000', '#FFCE56']
           }
-        ]
+        ],
+        
+        
       },
       options: {
+        
         responsive: true,
         plugins: {
           legend: {

@@ -1,0 +1,45 @@
+<div class="container mx-auto mb-5 p-5 border rounded-lg shadow-lg">
+  <h2 class="text-4xl font-semibold mb-4">New User Registration Form</h2>
+  <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+
+    <!-- {{userForm.value|json}} -->
+    <hr class="my-4"/>
+    <!-- {{userModel|json}} -->
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-semibold mb-2">Name</label>
+      <input type="text" required #name="ngModel" [class.border-red-500]="name.invalid && name.touched" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" [(ngModel)]="userModel.name" name="userName">
+      <small class="text-red-500" [class.hidden]="name.valid || name.untouched">Name is required</small>
+    </div>
+
+    
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-semibold mb-2">Email</label>
+      <input type="email" required #email="ngModel" [class.border-red-500]="email.invalid" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="email" [(ngModel)]="userModel.email">
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-semibold mb-2">Phone</label>
+      <input type="tel" #phone="ngModel" pattern="^\d{10}$" required [class.border-red-500]="phone.invalid && phone.touched" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="tel" [(ngModel)]="userModel.phone">
+      <small class="text-red-500" [class.hidden]="phone.valid || phone.untouched">Enter 10 digits only</small>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-semibold mb-2">Interested in</label>
+      <select required #topic="ngModel" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="interest" [(ngModel)]="userModel.topic">
+        <option selected>Angular</option>
+        <option *ngFor="let topic of topics">{{topic}}</option>
+      </select>
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" [(ngModel)]="userModel.subscribe" type="checkbox" id="subscribeCheck">
+      <label class="form-check-label ml-2" for="subscribeCheck">Send me promotional mails</label>
+    </div>
+
+    <button [disabled]="userForm.form.invalid" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200" type="submit">Submit form</button>
+
+    <p *ngIf="userForm.form.invalid">form has invalid inputs</p>
+  </form>
+</div>
